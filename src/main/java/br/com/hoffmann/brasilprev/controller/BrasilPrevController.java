@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-@Api(value = "BrasilPrev - Cadastro de produto", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@Api(value = "BrasilPrev - Cadastro de produto", produces = MediaType.APPLICATION_JSON_VALUE)
 @RestController
 @RequestMapping(path = "/v1/brasilprev")
 public class BrasilPrevController {
