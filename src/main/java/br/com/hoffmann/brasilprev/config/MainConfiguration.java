@@ -17,6 +17,8 @@ public class MainConfiguration extends WebSecurityConfigurerAdapter {
 
     private static final String PRODUTO = "/v1/brasilprev/cadastraProduto";
     private static final String CLIENTE = "/v1/brasilprev/cadastraCliente";
+    private static final String CATEGORIA = "/v1/brasilprev/cadastraCategoria";
+    private static final String PEDIDO = "/v1/brasilprev/cadastraPedido";
 
     @Autowired
     private ImplementsUserDetailsService userDetailsService;
@@ -26,6 +28,8 @@ public class MainConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, PRODUTO).permitAll()
                 .antMatchers(HttpMethod.POST, CLIENTE).permitAll()
+                .antMatchers(HttpMethod.POST, CATEGORIA).permitAll()
+                .antMatchers(HttpMethod.POST, PEDIDO).permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("logout"));

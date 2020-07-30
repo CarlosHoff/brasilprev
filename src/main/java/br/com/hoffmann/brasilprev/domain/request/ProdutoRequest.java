@@ -1,6 +1,5 @@
 package br.com.hoffmann.brasilprev.domain.request;
 
-import br.com.hoffmann.brasilprev.domain.enums.BrasilPrevEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.EqualsAndHashCode;
@@ -8,32 +7,29 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @ApiModel(value = "ProdutoRequest")
-public class ProdutoRequest implements Serializable {
+public class ProdutoRequest {
 
-    @ApiModelProperty(value = "cliente")
+    @ApiModelProperty(value = "produto")
     @NotNull
-    private Long cliente;
+    private String produto;
 
-    @ApiModelProperty(value = "data")
+    @ApiModelProperty(value = "preco")
     @NotNull
-    private LocalDateTime data;
+    private Double preco;
 
-    @ApiModelProperty(value = "status")
+    @ApiModelProperty(value = "quantidade")
     @NotNull
-    private BrasilPrevEnum status;
+    private Long quantidade;
 
-    @ApiModelProperty(value = "sessao")
+    @ApiModelProperty(value = "descricao")
     @NotNull
-    private String sessao;
+    private String descricao;
 
-    @ApiModelProperty(value = "Itens do pedido")
-    @NotNull
-    private PedidoItens pedidoItens;
+    @ApiModelProperty(value = "foto")
+    private byte[] foto;
 }

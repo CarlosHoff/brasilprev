@@ -6,27 +6,18 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @EqualsAndHashCode
 @ApiModel(value = "Produtos")
-public class Produtos {
-
-    @ApiModelProperty(value = "Categoria")
-    private Categoria categoria;
+public class Produtos implements Serializable {
 
     @ApiModelProperty(value = "Produto")
     private String produto;
 
-    @ApiModelProperty(value = "Preco")
-    private Double preco;
-
     @ApiModelProperty(value = "Quantidade")
     private Long quantidade;
 
-    @ApiModelProperty(value = "Descricao")
-    private String descricao;
-
-    @ApiModelProperty(value = "Foto")
-    private byte[] foto;
 }

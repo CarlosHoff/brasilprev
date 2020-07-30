@@ -1,5 +1,6 @@
 package br.com.hoffmann.brasilprev.entity;
 
+import br.com.hoffmann.brasilprev.domain.request.ProdutoRequest;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -54,11 +55,11 @@ public class ProdutosEntity {
     public ProdutosEntity() {
     }
 
-    public ProdutosEntity(br.com.hoffmann.brasilprev.domain.request.Produtos produtos) {
-        this.produto = produtos.getProduto();
-        this.preco = produtos.getPreco();
-        this.quantidade = produtos.getQuantidade();
-        this.descricao = produtos.getDescricao();
-        this.foto = produtos.getFoto();
+    public ProdutosEntity(ProdutoRequest request) {
+        this.produto = request.getProduto();
+        this.preco = request.getPreco();
+        this.quantidade = request.getQuantidade();
+        this.descricao = request.getDescricao();
+        this.foto = request.getFoto();
     }
 }

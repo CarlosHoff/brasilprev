@@ -6,26 +6,20 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @ApiModel(value = "PedidoItens")
-public class PedidoItens {
+public class PedidoItens implements Serializable {
 
-    @ApiModelProperty(value = "Produtos")
-    private List<Produtos> produtosList;
+    @ApiModelProperty(value = "produto")
+    @NotNull
+    private Long produto;
 
-    @ApiModelProperty(value = "Produto")
-    private String produto;
-
-    @ApiModelProperty(value = "Quantidade")
+    @ApiModelProperty(value = "quantidade")
+    @NotNull
     private Long quantidade;
-
-    @ApiModelProperty(value = "Valor")
-    private Double valor;
-
-    @ApiModelProperty(value = "Subtotal")
-    private Double subtotal;
 }

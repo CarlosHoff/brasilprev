@@ -1,5 +1,8 @@
 package br.com.hoffmann.brasilprev.entity;
 
+import br.com.hoffmann.brasilprev.domain.request.PedidoItens;
+import br.com.hoffmann.brasilprev.domain.request.PedidoRequest;
+import br.com.hoffmann.brasilprev.domain.request.Produtos;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,7 +26,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Table(name = "PEDIDO_ITENS")
@@ -55,4 +57,12 @@ public class PedidoItensEntity {
 
     @Column(name = "SUBTOTAL")
     private Double subtotal;
+
+    public PedidoItensEntity() {
+    }
+
+    public PedidoItensEntity(PedidoItens pedidoItens) {
+        this.produto = pedidoItens.getProduto().toString();
+        this.quantidade = pedidoItens.getQuantidade();
+    }
 }
