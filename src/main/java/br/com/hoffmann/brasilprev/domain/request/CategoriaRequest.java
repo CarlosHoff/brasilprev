@@ -2,20 +2,31 @@ package br.com.hoffmann.brasilprev.domain.request;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import javax.validation.constraints.NotNull;
 
-@Getter
-@Setter
-@EqualsAndHashCode
 @ApiModel(value = "CategoriaRequest")
 public class CategoriaRequest implements Serializable {
 
-    @ApiModelProperty(value = "Tipo de categoria")
-    @NotNull
-    private String categoria;
+  @ApiModelProperty(value = "Tipo de categoria")
+  @NotNull
+  private String categoria;
+
+  public String getCategoria() {
+    return categoria;
+  }
+
+  public void setCategoria(String categoria) {
+    this.categoria = categoria;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    return super.equals(obj);
+  }
+
+  @Override
+  public int hashCode() {
+    return super.hashCode();
+  }
 }

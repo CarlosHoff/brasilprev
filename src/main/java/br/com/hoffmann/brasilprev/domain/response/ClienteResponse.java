@@ -1,46 +1,62 @@
-package br.com.hoffmann.brasilprev.domain.request;
+package br.com.hoffmann.brasilprev.domain.response;
 
+import br.com.hoffmann.brasilprev.entity.ClienteEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
 
-@ApiModel(value = "ClienteRequest")
-public class ClienteRequest implements Serializable {
+@ApiModel(value = "ClienteResponse")
+public class ClienteResponse implements Serializable {
 
-  @ApiModelProperty(value = "Nome do cliente")
-  @NotNull
+  @ApiModelProperty(value = "idCliente")
+  private Long idCliente;
+
+  @ApiModelProperty(value = "nome")
   private String nome;
 
-  @ApiModelProperty(value = "Email")
-  @NotNull
-  @Email
+  @ApiModelProperty(value = "email")
   private String email;
 
-  @ApiModelProperty(value = "Senha")
-  @NotNull
+  @ApiModelProperty(value = "senha")
   private String senha;
 
-  @ApiModelProperty(value = "Rua")
-  @NotNull
+  @ApiModelProperty(value = "rua")
   private String rua;
 
-  @ApiModelProperty(value = "Cidade")
-  @NotNull
+  @ApiModelProperty(value = "cidade")
   private String cidade;
 
-  @ApiModelProperty(value = "Bairro")
-  @NotNull
+  @ApiModelProperty(value = "bairro")
   private String bairro;
 
-  @ApiModelProperty(value = "Cep")
-  @NotNull
+  @ApiModelProperty(value = "cep")
   private String cep;
 
-  @ApiModelProperty(value = "Estado")
-  @NotNull
+  @ApiModelProperty(value = "estado")
   private String estado;
+
+  public ClienteResponse() {
+  }
+
+  public ClienteResponse(ClienteEntity clienteEntity) {
+    this.idCliente = clienteEntity.getIdCliente();
+    this.nome = clienteEntity.getNome();
+    this.email = clienteEntity.getEmail();
+    this.senha = clienteEntity.getSenha();
+    this.rua = clienteEntity.getRua();
+    this.cidade = clienteEntity.getCidade();
+    this.bairro = clienteEntity.getBairro();
+    this.cep = clienteEntity.getCep();
+    this.estado = clienteEntity.getEstado();
+  }
+
+  public Long getIdCliente() {
+    return idCliente;
+  }
+
+  public void setIdCliente(Long idCliente) {
+    this.idCliente = idCliente;
+  }
 
   public String getNome() {
     return nome;

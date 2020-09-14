@@ -1,57 +1,45 @@
-package br.com.hoffmann.brasilprev.entity;
+package br.com.hoffmann.brasilprev.domain.response;
 
-import br.com.hoffmann.brasilprev.domain.request.ProdutoRequest;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import br.com.hoffmann.brasilprev.entity.CategoriaEntity;
+import br.com.hoffmann.brasilprev.entity.ProdutosEntity;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.Serializable;
 
-@Table(name = "PRODUTOS")
-@Entity
-public class ProdutosEntity {
+@ApiModel(value = "ProdutoResponse")
+public class ProdutoResponse implements Serializable {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PRODUTOS")
-  @SequenceGenerator(sequenceName = "SQ_PRODUTOS", allocationSize = 1, name = "SQ_PRODUTOS")
-  @Column(name = "ID_PRODUTOS")
+  @ApiModelProperty(value = "idProdutos")
   private Long idProdutos;
 
-  @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "ID_CATEGORIA")
+  @ApiModelProperty(value = "categoriaEntity")
   private CategoriaEntity categoriaEntity;
 
-  @Column(name = "PRODUTO", nullable = false)
+  @ApiModelProperty(value = "produto")
   private String produto;
 
-  @Column(name = "PRECO", nullable = false)
+  @ApiModelProperty(value = "preco")
   private Double preco;
 
-  @Column(name = "QUANTIDADE", nullable = false)
+  @ApiModelProperty(value = "quantidade")
   private Long quantidade;
 
-  @Column(name = "DESCRICAO", nullable = false)
+  @ApiModelProperty(value = "descricao")
   private String descricao;
 
-  @Lob
-  @Column(name = "FOTO", nullable = false)
+  @ApiModelProperty(value = "foto")
   private byte[] foto;
 
-  public ProdutosEntity() {
+  public ProdutoResponse() {
   }
 
-  public ProdutosEntity(ProdutoRequest request) {
-    this.produto = request.getProduto();
-    this.preco = request.getPreco();
-    this.quantidade = request.getQuantidade();
-    this.descricao = request.getDescricao();
-    this.foto = request.getFoto();
+  public ProdutoResponse(ProdutosEntity produtosEntity) {
+    this.idProdutos = produtosEntity.getIdProdutos();
+    this.produto = produtosEntity.getProduto();
+    this.preco = produtosEntity.getPreco();
+    this.quantidade = produtosEntity.getQuantidade();
+    this.descricao = produtosEntity.getDescricao();
+    this.foto = produtosEntity.getFoto();
   }
 
   public Long getIdProdutos() {
