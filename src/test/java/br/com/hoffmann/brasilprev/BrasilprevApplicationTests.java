@@ -1,13 +1,8 @@
 package br.com.hoffmann.brasilprev;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
-@SpringBootTest
-class BrasilprevApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
+@EnableAutoConfiguration
+class BrasilprevApplicationTests extends BrasilprevApplication {
 
 }
