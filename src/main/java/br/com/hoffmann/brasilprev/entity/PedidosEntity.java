@@ -13,15 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Table(name = "PEDIDOS")
 @Entity
 public class PedidosEntity {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PEDIDOS")
-  @SequenceGenerator(sequenceName = "SQ_PEDIDOS", allocationSize = 1, name = "SQ_PEDIDOS")
-  @Column(name = "ID_PEDIDO")
-  private Long idPedido;
+  @GeneratedValue
+  private Long id;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "ID_CLIENTE")
@@ -42,12 +39,12 @@ public class PedidosEntity {
     this.sessao = "JOGOS";
   }
 
-  public Long getIdPedido() {
-    return idPedido;
+  public Long getId() {
+    return id;
   }
 
-  public void setIdPedido(Long idPedido) {
-    this.idPedido = idPedido;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public ClienteEntity getClienteEntity() {

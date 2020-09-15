@@ -36,7 +36,7 @@ public class PedidoResponse implements Serializable {
   }
 
   public PedidoResponse(PedidoItensEntity pedidoItensEntity) {
-    this.idPedidoItens = pedidoItensEntity.getIdPedidoItens();
+    this.idPedidoItens = pedidoItensEntity.getId();
     this.pedidosEntity = pedidoItensEntity.getPedidosEntity();
     this.produtos = pedidoItensEntity.getProdutos();
     this.produto = pedidoItensEntity.getProduto();

@@ -37,7 +37,7 @@ public class ProdutoController {
   private ProdutoService service;
 
   @ApiOperation(value = "BrasilPrev - API para Cadastro de Categoria", nickname = "cadastraCategoria")
-  @PostMapping(value = "/cadastraCategoria", produces = APPLICATION_JSON_VALUE)
+  @PostMapping(value = "/cadastracategoria", produces = APPLICATION_JSON_VALUE)
   public ResponseEntity<BrasilPrevResponse> cadastraCategoria(
       @RequestBody CategoriaRequest request) {
     service.cadastraCategoria(request);
@@ -45,7 +45,7 @@ public class ProdutoController {
   }
 
   @ApiOperation(value = "BrasilPrev - API para Cadastro de Categoria", nickname = "cadastraProduto")
-  @PostMapping(value = "/cadastraProduto", produces = APPLICATION_JSON_VALUE)
+  @PostMapping(value = "/cadastraproduto", produces = APPLICATION_JSON_VALUE)
   public ResponseEntity<BrasilPrevResponse> cadastraProduto(@RequestBody ProdutoRequest request,
       @RequestParam Long idCategoria) throws NotFoundException {
     service.cadastraProduto(request, idCategoria);
@@ -53,21 +53,21 @@ public class ProdutoController {
   }
 
   @ApiOperation(value = "EndPoint para exclusão de Produtos")
-  @DeleteMapping(value = "/deletaProduto/{id}")
+  @DeleteMapping(value = "/deletaproduto/{id}")
   public void deletaProduto(
       @PathVariable(value = "id") @NotNull Long id) {
     service.deletaProduto(id);
   }
 
   @ApiOperation(value = "EndPoint para fazer a busca de Produtos")
-  @GetMapping(value = "/buscaProdutos")
+  @GetMapping(value = "/buscaprodutos")
   public ResponseEntity<List<ProdutoResponse>> buscaProdutos() {
     List<ProdutoResponse> response = service.buscaProdutos();
     return ResponseEntity.ok().body(response);
   }
 
   @ApiOperation(value = "EndPoint para fazer a busca de Produtos pelo id")
-  @GetMapping(value = "/buscaProdutoPeloID/{id}")
+  @GetMapping(value = "/buscaprodutopeloid/{id}")
   public ResponseEntity<ProdutoResponse> buscaProdutoPeloID(
       @RequestParam(value = "id") Long id) throws NotFoundException {
     ProdutoResponse response = service.buscaProdutoPeloID(id);
@@ -75,7 +75,7 @@ public class ProdutoController {
   }
 
   @ApiOperation(value = "EndPoint para alteração de informações dos Produtos")
-  @PutMapping(value = "/updateProduto/{id}")
+  @PutMapping(value = "/updateproduto/{id}")
   public ResponseEntity<ProdutoResponse> updateProduto(
       @PathVariable(value = "id") @NotNull Long id,
       @RequestBody @Valid ProdutoRequest request) throws NotFoundException {

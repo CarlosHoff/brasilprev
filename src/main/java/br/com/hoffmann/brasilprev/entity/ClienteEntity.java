@@ -12,15 +12,12 @@ import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-@Table(name = "CLIENTE")
 @Entity
 public class ClienteEntity implements UserDetails {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CLIENTE")
-  @SequenceGenerator(sequenceName = "SQ_CLIENTE", allocationSize = 1, name = "SQ_CLIENTE")
-  @Column(name = "ID_CLIENTE")
-  private Long idCliente;
+  @GeneratedValue
+  private Long id;
 
   @Column(name = "NOME", nullable = false)
   private String nome;
@@ -48,17 +45,21 @@ public class ClienteEntity implements UserDetails {
 
   private ClienteEntity(String email) {
     this.email = email;
-    idCliente = null;
+    id = null;
     senha = null;
   }
 
-  private ClienteEntity(Long idCliente, String email, String senha) {
-    this.idCliente = idCliente;
+  public ClienteEntity() {
+  }
+
+  public ClienteEntity(Long id, String email, String senha) {
+    this.id = id;
     this.email = email;
     this.senha = senha;
   }
 
-  public ClienteEntity() {
+  public static ClienteEntity from(String email) {
+    return  new ClienteEntity(email);
   }
 
   public ClienteEntity(ClienteRequest request) {
@@ -71,12 +72,12 @@ public class ClienteEntity implements UserDetails {
     this.estado = request.getEstado();
   }
 
-  public Long getIdCliente() {
-    return idCliente;
+  public Long getId() {
+    return id;
   }
 
-  public void setIdCliente(Long idCliente) {
-    this.idCliente = idCliente;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getNome() {

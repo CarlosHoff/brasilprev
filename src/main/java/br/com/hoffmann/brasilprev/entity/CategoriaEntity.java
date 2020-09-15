@@ -9,15 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Table(name = "CATEGORIA")
 @Entity
 public class CategoriaEntity {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CATEGORIA")
-  @SequenceGenerator(sequenceName = "SQ_CATEGORIA", allocationSize = 1, name = "SQ_CATEGORIA")
-  @Column(name = "ID_CATEGORIA")
-  private Long idCategoria;
+  @GeneratedValue
+  private Long id;
 
   @Column(name = "CATEGORIA", nullable = false)
   private String categoria;
@@ -29,12 +26,12 @@ public class CategoriaEntity {
   public CategoriaEntity() {
   }
 
-  public Long getIdCategoria() {
-    return idCategoria;
+  public Long getId() {
+    return id;
   }
 
-  public void setIdCategoria(Long idCategoria) {
-    this.idCategoria = idCategoria;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getCategoria() {

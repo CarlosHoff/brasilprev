@@ -1,0 +1,69 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.1.RELEASE")
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'br.com.hoffmann'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+bootJar {
+    baseName = 'brasilprev-DEMO'
+    version =  '0.1.0'
+}
+
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+sourceCompatibility = 1.8
+targetCompatibility  = 1.8
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.2.2.RELEASE'
+// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core
+    compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '9.0.30'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.2.2.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.2.2.RELEASE'
+    compile group: 'io.swagger', name: 'swagger-annotations', version: '1.6.2'
+
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile group: 'org.springframework', name: 'spring-test', version: '5.2.2.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.testng', name: 'testng', version: '6.11'
+    testCompile "org.mockito:mockito-core:2.+"
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    runtimeOnly 'mysql:mysql-connector-java'
+    compile ('com.fasterxml.jackson.core:jackson-databind:2.9.8')
+    ext['tomcat.version'] = '9.0.24'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,555 @@
+{
+	"info": {
+		"_postman_id": "646ab795-272f-4b05-a008-c2dea2f2f7ce",
+		"name": "BRASIL-PREV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Cadastra Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\" : \"Carlos\",\r\n    \"email\" : \"carloshoffmann@live.com\",\r\n    \"senha\" : \"123456\",\r\n    \"rua\" : \"rua\",\r\n    \"cidade\" : \"Osasco\",\r\n    \"bairro\" : \"bairro\",\r\n    \"cep\" : \"08077980\",\r\n    \"estado\" : \"estado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/cadastracliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"cadastracliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Clientes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/buscaclientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"buscaclientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Clientes pelo ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/buscaclientepeloid/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"buscaclientepeloid",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/deletacliente/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"deletacliente",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Cadastra Categoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoria\" : \"JOGOS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/cadastracategoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"cadastracategoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Produto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoria\" : \"JOGOS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/deletaproduto/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"deletaproduto",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Produto",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/buscaprodutos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"buscaprodutos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Produto pelo ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/buscaprodutopeloid/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"buscaprodutopeloid",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Altera Produto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/updateproduto/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"updateproduto",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastra Produto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"produto\" : \"COD\",\r\n    \"preco\" : 36.65,\r\n    \"quantidade\" : 10,\r\n    \"descricao\" : \"Jogo de FPS\",\r\n    \"foto\" : \"\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/cadastraproduto?idCategoria=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"cadastraproduto"
+							],
+							"query": [
+								{
+									"key": "idCategoria",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "Cadastra Pedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cliente\" : 1,\r\n    \"data\" : \"2020-08-15\",\r\n    \"itensDoPedido\" : [{\r\n        \"produto\" : 1,\r\n        \"quantidade\" : 10\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/cadastraPedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"cadastraPedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta Pedido",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cliente\" : 1,\r\n    \"data\" : \"2020-08-15\",\r\n    \"itensDoPedido\" : [{\r\n        \"produto\" : 1,\r\n        \"quantidade\" : 10\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/deletaPedido/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"deletaPedido",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Pedido",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cliente\" : 1,\r\n    \"data\" : \"2020-08-15\",\r\n    \"itensDoPedido\" : [{\r\n        \"produto\" : 1,\r\n        \"quantidade\" : 10\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/buscaPedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"buscaPedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Pedido pelo ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BrasilPrev eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwNjU3OX0.Ih6N160quDCY1QMDx3W4wWWo-RRkRPGEUuhQB9HSiOC0Mx_KJcmeqmJvGaPAp1dObsrHOq57NMoF1zbSFnO5cA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cliente\" : 1,\r\n    \"data\" : \"2020-08-15\",\r\n    \"itensDoPedido\" : [{\r\n        \"produto\" : 1,\r\n        \"quantidade\" : 10\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/brasilprev/buscaPedidoPeloID/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"brasilprev",
+								"buscaPedidoPeloID",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Gera token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3Nob2ZmbWFubkBsaXZlLmNvbSIsImV4cCI6MTYwMTAwMzc3MX0.yQbsaZ0ndbF3ARdLQo_ncFr7QvLwbcaJikoC5RotCHMrejby4wPtjmBNEU_WCuZGNykY-rpIGTEOQ_PyEs38Pw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"username\":\"carloshoffmann@live.com\", \r\n    \"password\": \"123456\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/v1/brasilprev/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"brasilprev",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

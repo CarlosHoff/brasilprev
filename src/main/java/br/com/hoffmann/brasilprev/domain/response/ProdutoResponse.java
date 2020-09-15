@@ -34,7 +34,7 @@ public class ProdutoResponse implements Serializable {
   }
 
   public ProdutoResponse(ProdutosEntity produtosEntity) {
-    this.idProdutos = produtosEntity.getIdProdutos();
+    this.idProdutos = produtosEntity.getId();
     this.produto = produtosEntity.getProduto();
     this.preco = produtosEntity.getPreco();
     this.quantidade = produtosEntity.getQuantidade();

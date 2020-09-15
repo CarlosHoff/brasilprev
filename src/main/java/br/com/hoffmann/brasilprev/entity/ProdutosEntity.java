@@ -13,15 +13,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Table(name = "PRODUTOS")
 @Entity
 public class ProdutosEntity {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PRODUTOS")
-  @SequenceGenerator(sequenceName = "SQ_PRODUTOS", allocationSize = 1, name = "SQ_PRODUTOS")
-  @Column(name = "ID_PRODUTOS")
-  private Long idProdutos;
+  @GeneratedValue
+  private Long id;
 
   @OneToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "ID_CATEGORIA")
@@ -54,12 +51,12 @@ public class ProdutosEntity {
     this.foto = request.getFoto();
   }
 
-  public Long getIdProdutos() {
-    return idProdutos;
+  public Long getId() {
+    return id;
   }
 
-  public void setIdProdutos(Long idProdutos) {
-    this.idProdutos = idProdutos;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public CategoriaEntity getCategoriaEntity() {

@@ -39,7 +39,7 @@ public class ClienteResponse implements Serializable {
   }
 
   public ClienteResponse(ClienteEntity clienteEntity) {
-    this.idCliente = clienteEntity.getIdCliente();
+    this.idCliente = clienteEntity.getId();
     this.nome = clienteEntity.getNome();
     this.email = clienteEntity.getEmail();
     this.senha = clienteEntity.getSenha();
