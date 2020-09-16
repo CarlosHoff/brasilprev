@@ -6,17 +6,18 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
+@Table(name = "CLIENTE_ENTITY")
 public class ClienteEntity implements UserDetails {
 
-  @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SQ_CLIENTE_ENTITY")
+  @SequenceGenerator(sequenceName = "SQ_CLIENTE_ENTITY", allocationSize = 1, name = "SQ_CLIENTE_ENTITY")
+  @Column(name = "ID")
   private Long id;
 
   @Column(name = "NOME", nullable = false)
@@ -59,7 +60,7 @@ public class ClienteEntity implements UserDetails {
   }
 
   public static ClienteEntity from(String email) {
-    return  new ClienteEntity(email);
+    return new ClienteEntity(email);
   }
 
   public ClienteEntity(ClienteRequest request) {

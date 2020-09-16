@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -15,10 +14,12 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
+@Table(name = "PEDIDO_ITENS_ENTITY")
 public class PedidoItensEntity {
 
-  @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SQ_PEDIDO_ITENS_ENTITY")
+  @SequenceGenerator(sequenceName = "SQ_PEDIDO_ITENS_ENTITY", allocationSize = 1, name = "SQ_PEDIDO_ITENS_ENTITY")
+  @Column(name = "ID")
   private Long id;
 
   @ManyToOne(fetch = FetchType.LAZY)
