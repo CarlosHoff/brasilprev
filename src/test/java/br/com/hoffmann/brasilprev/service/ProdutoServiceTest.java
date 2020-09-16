@@ -4,8 +4,8 @@ import static br.com.hoffmann.brasilprev.mother.BrasilPrevMother.createCategoria
 import static br.com.hoffmann.brasilprev.mother.BrasilPrevMother.createCategoriaRequest;
 import static br.com.hoffmann.brasilprev.mother.BrasilPrevMother.createProdutosEntity;
 import static br.com.hoffmann.brasilprev.mother.BrasilPrevMother.createProdutosRequest;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -18,16 +18,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import javassist.NotFoundException;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.annotations.BeforeMethod;
 
-@AutoConfigureMockMvc
-public class ProdutoServiceTest extends AbstractTestNGSpringContextTests {
+public class ProdutoServiceTest {
 
   @InjectMocks
   private ProdutoService service;
@@ -38,25 +35,25 @@ public class ProdutoServiceTest extends AbstractTestNGSpringContextTests {
   @Mock
   private ProdutosRepository produtosRepository;
 
-  @BeforeMethod
-  public void initialize() {
+  @Before
+  public void createMocks() {
     MockitoAnnotations.initMocks(this);
   }
 
   @Test
   public void cadastraProdutoTest() throws NotFoundException {
     when(categoriaRepository.findById(anyLong())).thenReturn(Optional.of(createCategoriaEntity()));
-    doNothing().when(produtosRepository.save(createProdutosEntity()));
+    when(produtosRepository.save(any())).thenReturn(createProdutosEntity());
     service.cadastraProduto(createProdutosRequest(), 1L);
     verify(categoriaRepository, times(1)).findById(anyLong());
-    verify(produtosRepository, times(1)).save(createProdutosEntity());
+    verify(produtosRepository, times(1)).save(any());
   }
 
   @Test
   public void cadastraCategoriaTest() {
-    doNothing().when(categoriaRepository.save(createCategoriaEntity()));
+    when(categoriaRepository.save(any())).thenReturn(createCategoriaEntity());
     service.cadastraCategoria(createCategoriaRequest());
-    verify(categoriaRepository, times(1)).save(createCategoriaEntity());
+    verify(categoriaRepository, times(1)).save(any());
   }
 
   @Test

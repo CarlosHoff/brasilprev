@@ -6,59 +6,63 @@ import static br.com.hoffmann.brasilprev.mother.BrasilPrevMother.createPedidoReq
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import br.com.hoffmann.brasilprev.config.ControllerConfigTest;
+import br.com.hoffmann.brasilprev.config.ConfigTest;
 import br.com.hoffmann.brasilprev.domain.response.PedidoResponse;
 import br.com.hoffmann.brasilprev.service.PedidoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Collections;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeTest;
 
-@SpringBootTest
-@ActiveProfiles("test")
-@RunWith(SpringJUnit4ClassRunner.class)
-public class PedidoControllerTest extends ControllerConfigTest {
-
-  @Autowired
-  private WebApplicationContext applicationContext;
+public class PedidoControllerTest extends ConfigTest {
 
   @InjectMocks
-  private ClienteController clienteController;
+  private PedidoController pedidoController;
 
   @Mock
   private PedidoService pedidoService;
 
-  @Autowired
-  private ObjectMapper objectMapper;
+  private ObjectMapper objectMapper = new ObjectMapper();
 
   private MockMvc mvc;
 
-  @Before
-  public void setup() {
+  @BeforeEach
+  void setUp() {
+    MockitoAnnotations.initMocks(this);
     this.mvc = MockMvcBuilders
-        .webAppContextSetup(applicationContext)
+        .standaloneSetup(pedidoController)
         .build();
+  }
+
+  @BeforeTest
+  public void beforeTest() throws Exception {
+
+  }
+
+  @AfterMethod
+  public void reset_mocks() {
+    Mockito.reset(pedidoService);
   }
 
   @Test
   public void cadastraPedidoTest() throws Exception {
     doNothing().when(pedidoService).cadastraPedido(createPedidoRequest());
-    mvc.perform(post(V1_BRASILPREV + "/cadastraPedido")
+    mvc.perform(post(V1_BRASILPREV + "/cadastrapedido")
         .contentType(MediaType.APPLICATION_JSON)
         .content(this.objectMapper.writeValueAsString(clienteRequest())))
         .andExpect(status().isCreated());
@@ -67,7 +71,7 @@ public class PedidoControllerTest extends ControllerConfigTest {
   @Test
   public void deletaPedidoTest() throws Exception {
     doNothing().when(pedidoService).deletaPedido(anyLong());
-    mvc.perform(post(V1_BRASILPREV + "/deletaPedido/{id}")
+    mvc.perform(delete(V1_BRASILPREV + "/deletapedido/1")
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk());
   }
@@ -76,16 +80,7 @@ public class PedidoControllerTest extends ControllerConfigTest {
   public void buscaPedidosTest() throws Exception {
     when(pedidoService.buscaPedidos()).thenReturn(
         Collections.singletonList(new PedidoResponse()));
-    mvc.perform(post(V1_BRASILPREV + "/buscaPedidos")
-        .contentType(MediaType.APPLICATION_JSON))
-        .andExpect(MockMvcResultMatchers.content()
-            .contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
-  }
-
-  @Test
-  public void buscaPedidosPeloIDTest() throws Exception {
-    when(pedidoService.buscaPedidoPeloID(anyLong())).thenReturn(new PedidoResponse());
-    mvc.perform(post(V1_BRASILPREV + "/buscaPedidoPeloID/{id}")
+    mvc.perform(get(V1_BRASILPREV + "/buscapedidos")
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(MockMvcResultMatchers.content()
             .contentTypeCompatibleWith(MediaType.APPLICATION_JSON));

@@ -35,7 +35,7 @@ public class PedidoController {
   private PedidoService service;
 
   @ApiOperation(value = "BrasilPrev - API para Cadastro de Pedidos", nickname = "cadastraPedido")
-  @PostMapping(value = "/cadastraPedido", produces = APPLICATION_JSON_VALUE)
+  @PostMapping(value = "/cadastrapedido", produces = APPLICATION_JSON_VALUE)
   public ResponseEntity<BrasilPrevResponse> cadastraPedido(
       @RequestBody PedidoRequest request) throws NotFoundException {
     service.cadastraPedido(request);
@@ -43,21 +43,21 @@ public class PedidoController {
   }
 
   @ApiOperation(value = "EndPoint para exclusão de Pedidos")
-  @DeleteMapping(value = "/deletaPedido/{id}")
+  @DeleteMapping(value = "/deletapedido/{id}")
   public void deletaPedido(
       @PathVariable(value = "id") @NotNull Long id) {
     service.deletaPedido(id);
   }
 
   @ApiOperation(value = "EndPoint para fazer a busca de Pedidos")
-  @GetMapping(value = "/buscaPedidos")
+  @GetMapping(value = "/buscapedidos")
   public ResponseEntity<List<PedidoResponse>> buscaPedidos() {
     List<PedidoResponse> response = service.buscaPedidos();
     return ResponseEntity.ok().body(response);
   }
 
   @ApiOperation(value = "EndPoint para fazer a busca de Pedidos pelo id")
-  @GetMapping(value = "/buscaPedidoPeloID/{id}")
+  @GetMapping(value = "/buscapedidopeloid")
   public ResponseEntity<PedidoResponse> buscaPedidoPeloID(
       @RequestParam(value = "id") Long id) throws NotFoundException {
     PedidoResponse response = service.buscaPedidoPeloID(id);

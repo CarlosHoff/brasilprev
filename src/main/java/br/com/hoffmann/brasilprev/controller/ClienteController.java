@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Api(value = "BrasilPrev - Cadastro de clientes", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -48,14 +49,15 @@ public class ClienteController {
   }
 
   @ApiOperation(value = "EndPoint para fazer a busca de Clientes")
-  @GetMapping(value = "/buscaclientes")
+  @GetMapping(value = "/buscaclientes", produces = APPLICATION_JSON_VALUE)
+  @ResponseBody
   public ResponseEntity<List<ClienteResponse>> buscaClientes() {
     List<ClienteResponse> response = service.buscaClientes();
     return ResponseEntity.ok().body(response);
   }
 
   @ApiOperation(value = "EndPoint para fazer a busca de Clientes id")
-  @GetMapping(value = "/buscaclientepeloid/{id}")
+  @GetMapping(value = "/buscaclientepeloid", produces = APPLICATION_JSON_VALUE)
   public ResponseEntity<ClienteResponse> buscaClientePeloID(
       @RequestParam(value = "id") Long id) throws NotFoundException {
     ClienteResponse response = service.buscaClientePeloID(id);

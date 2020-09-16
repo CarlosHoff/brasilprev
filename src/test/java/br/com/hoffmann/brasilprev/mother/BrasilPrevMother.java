@@ -6,7 +6,6 @@ import br.com.hoffmann.brasilprev.domain.request.ClienteRequest;
 import br.com.hoffmann.brasilprev.domain.request.PedidoItens;
 import br.com.hoffmann.brasilprev.domain.request.PedidoRequest;
 import br.com.hoffmann.brasilprev.domain.request.ProdutoRequest;
-import br.com.hoffmann.brasilprev.domain.response.ClienteResponse;
 import br.com.hoffmann.brasilprev.entity.CategoriaEntity;
 import br.com.hoffmann.brasilprev.entity.ClienteEntity;
 import br.com.hoffmann.brasilprev.entity.PedidoItensEntity;
@@ -72,7 +71,7 @@ public class BrasilPrevMother {
     return request;
   }
 
-  public static List<PedidoItensEntity> createItensEntityList(){
+  public static List<PedidoItensEntity> createItensEntityList() {
     List<PedidoItensEntity> pedidoItensEntityList = new ArrayList<>();
     PedidoItensEntity pedidoItensEntity = new PedidoItensEntity();
     pedidoItensEntity.setId(1L);

@@ -67,7 +67,7 @@ public class ProdutoController {
   }
 
   @ApiOperation(value = "EndPoint para fazer a busca de Produtos pelo id")
-  @GetMapping(value = "/buscaprodutopeloid/{id}")
+  @GetMapping(value = "/buscaprodutopeloid")
   public ResponseEntity<ProdutoResponse> buscaProdutoPeloID(
       @RequestParam(value = "id") Long id) throws NotFoundException {
     ProdutoResponse response = service.buscaProdutoPeloID(id);

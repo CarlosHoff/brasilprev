@@ -1,20 +1,14 @@
-package br.com.hoffmann.brasilprev;
+package br.com.hoffmann.brasilprev.config;
 
-import br.com.hoffmann.brasilprev.config.MainConfiguration;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.mock.web.MockServletContext;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-@SpringBootTest
 @ContextConfiguration(classes = {TestConfiguration.class, MockServletContext.class,
     MainConfiguration.class})
 @WebAppConfiguration
-class BrasilprevApplicationTests extends BrasilprevApplication {
+public abstract class ConfigTest extends AbstractTestNGSpringContextTests {
 
-  @Test
-  void contextLoads() {
-  }
 }
