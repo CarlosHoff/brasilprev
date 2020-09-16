@@ -20,14 +20,17 @@ import java.util.Optional;
 import javassist.NotFoundException;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class ProdutoServiceTest {
 
   @InjectMocks
-  private ProdutoService service;
+  private ProdutoService produtoService;
 
   @Mock
   private CategoriaRepository categoriaRepository;
@@ -36,7 +39,7 @@ public class ProdutoServiceTest {
   private ProdutosRepository produtosRepository;
 
   @Before
-  public void createMocks() {
+  public void init() {
     MockitoAnnotations.initMocks(this);
   }
 
@@ -44,7 +47,7 @@ public class ProdutoServiceTest {
   public void cadastraProdutoTest() throws NotFoundException {
     when(categoriaRepository.findById(anyLong())).thenReturn(Optional.of(createCategoriaEntity()));
     when(produtosRepository.save(any())).thenReturn(createProdutosEntity());
-    service.cadastraProduto(createProdutosRequest(), 1L);
+    produtoService.cadastraProduto(createProdutosRequest(), 1L);
     verify(categoriaRepository, times(1)).findById(anyLong());
     verify(produtosRepository, times(1)).save(any());
   }
@@ -52,7 +55,7 @@ public class ProdutoServiceTest {
   @Test
   public void cadastraCategoriaTest() {
     when(categoriaRepository.save(any())).thenReturn(createCategoriaEntity());
-    service.cadastraCategoria(createCategoriaRequest());
+    produtoService.cadastraCategoria(createCategoriaRequest());
     verify(categoriaRepository, times(1)).save(any());
   }
 
@@ -60,7 +63,7 @@ public class ProdutoServiceTest {
   public void buscaProdutosTest() {
     when(produtosRepository.findAll())
         .thenReturn(Collections.singletonList(createProdutosEntity()));
-    List<ProdutoResponse> response = service.buscaProdutos();
+    List<ProdutoResponse> response = produtoService.buscaProdutos();
     assertEquals(response.get(0).getDescricao(), createProdutosEntity().getDescricao());
     verify(produtosRepository, times(1)).findAll();
   }
@@ -68,7 +71,7 @@ public class ProdutoServiceTest {
   @Test
   public void buscaProdutoPeloIDTest() throws NotFoundException {
     when(produtosRepository.findById(anyLong())).thenReturn(Optional.of(createProdutosEntity()));
-    ProdutoResponse response = service.buscaProdutoPeloID(anyLong());
+    ProdutoResponse response = produtoService.buscaProdutoPeloID(anyLong());
     assertEquals(response.getProduto(), createProdutosEntity().getProduto());
   }
 }

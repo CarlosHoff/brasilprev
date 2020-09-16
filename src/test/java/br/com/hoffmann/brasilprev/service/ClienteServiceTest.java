@@ -18,10 +18,13 @@ import java.util.List;
 import javassist.NotFoundException;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class ClienteServiceTest {
 
   @InjectMocks
@@ -34,7 +37,7 @@ public class ClienteServiceTest {
   private CriptografiaUtils criptografiaUtils;
 
   @Before
-  public void createMocks() {
+  public void init() {
     MockitoAnnotations.initMocks(this);
   }
 

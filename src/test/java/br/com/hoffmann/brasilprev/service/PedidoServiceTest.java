@@ -22,14 +22,17 @@ import java.util.Optional;
 import javassist.NotFoundException;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class PedidoServiceTest {
 
   @InjectMocks
-  private PedidoService service;
+  private PedidoService pedidoService;
 
   @Mock
   private ClienteRepository clienteRepository;
@@ -44,17 +47,17 @@ public class PedidoServiceTest {
   private PedidoItensRepository pedidoItensRepository;
 
   @Before
-  public void createMocks() {
+  public void init() {
     MockitoAnnotations.initMocks(this);
   }
 
   @Test
   public void cadastraPedidoTest() throws NotFoundException {
     when(clienteRepository.findById(anyLong())).thenReturn(Optional.of(createClienteEntity()));
-    when(pedidosRepository.save(createPedidosEntity())).thenReturn(createPedidosEntity());
+//    when(pedidosRepository.save(createPedidosEntity())).thenReturn(createPedidosEntity());
     when(produtosRepository.findById(anyLong())).thenReturn(Optional.of(createProdutosEntity()));
     when(pedidoItensRepository.saveAll(anyList())).thenReturn(createItensEntityList());
-    service.cadastraPedido(createPedidoRequest());
+    pedidoService.cadastraPedido(createPedidoRequest());
     verify(clienteRepository, times(1)).findById(anyLong());
     verify(produtosRepository, times(1)).findById(anyLong());
   }
@@ -62,7 +65,7 @@ public class PedidoServiceTest {
   @Test
   public void buscaPedidosTest() {
     when(pedidoItensRepository.findAll()).thenReturn(createItensEntityList());
-    List<PedidoResponse> response = service.buscaPedidos();
+    List<PedidoResponse> response = pedidoService.buscaPedidos();
     assertEquals(response.get(0).getProduto(), createItensEntityList().get(0).getProduto());
     verify(pedidoItensRepository, times(1)).findAll();
   }
@@ -71,7 +74,7 @@ public class PedidoServiceTest {
   public void buscaPedidoPeloIDTest() throws NotFoundException {
     when(pedidoItensRepository.findById(anyLong())).thenReturn(
         Optional.ofNullable(createItensEntityList().get(0)));
-    PedidoResponse response = service.buscaPedidoPeloID(anyLong());
+    PedidoResponse response = pedidoService.buscaPedidoPeloID(anyLong());
     assertEquals(response.getProduto(), createItensEntityList().get(0).getProduto());
     verify(pedidoItensRepository, times(1)).findById(anyLong());
   }

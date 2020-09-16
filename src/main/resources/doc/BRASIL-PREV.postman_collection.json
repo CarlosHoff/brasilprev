@@ -77,7 +77,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8090/v1/brasilprev/buscaclientepeloid/{id}",
+							"raw": "http://localhost:8090/v1/brasilprev/buscaclientepeloid?id=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -86,8 +86,13 @@
 							"path": [
 								"v1",
 								"brasilprev",
-								"buscaclientepeloid",
-								"{id}"
+								"buscaclientepeloid"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -257,7 +262,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8090/v1/brasilprev/buscaprodutopeloid/{id}",
+							"raw": "http://localhost:8090/v1/brasilprev/buscaprodutopeloid?id=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -266,8 +271,13 @@
 							"path": [
 								"v1",
 								"brasilprev",
-								"buscaprodutopeloid",
-								"{id}"
+								"buscaprodutopeloid"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -415,7 +425,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8090/v1/brasilprev/deletaPedido/{id}",
+							"raw": "http://localhost:8090/v1/brasilprev/deletapedido/{id}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -424,7 +434,7 @@
 							"path": [
 								"v1",
 								"brasilprev",
-								"deletaPedido",
+								"deletapedido",
 								"{id}"
 							]
 						}
@@ -455,7 +465,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8090/v1/brasilprev/buscaPedidos",
+							"raw": "http://localhost:8090/v1/brasilprev/buscapedidos",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -464,7 +474,7 @@
 							"path": [
 								"v1",
 								"brasilprev",
-								"buscaPedidos"
+								"buscapedidos"
 							]
 						}
 					},
@@ -494,7 +504,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8090/v1/brasilprev/buscaPedidoPeloID/{id}",
+							"raw": "http://localhost:8090/v1/brasilprev/buscapedidopeloid?id=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -503,8 +513,13 @@
 							"path": [
 								"v1",
 								"brasilprev",
-								"buscaPedidoPeloID",
-								"{id}"
+								"buscapedidopeloid"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},

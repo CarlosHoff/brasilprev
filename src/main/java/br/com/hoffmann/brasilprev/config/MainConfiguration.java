@@ -17,20 +17,20 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class MainConfiguration extends WebSecurityConfigurerAdapter {
 
-  private static final String PRODUTO = "/v1/brasilprev/cadastraProduto";
-  private static final String DELETE_PRODUTO = "/v1/brasilprev/deletaProduto/{id}";
-  private static final String BUSCA_PRODUTO = "/v1/brasilprev/buscaProdutos";
-  private static final String BUSCA_PRODUTO_ID = "/v1/brasilprev/buscaProdutoPeloID/{id}";
-  private static final String UPDATE_PRODUTO = "/v1/brasilprev/updateProduto/{id}";
-  private static final String CADASTRA_CLIENTE = "/v1/brasilprev/cadastraCliente";
-  private static final String DELETE_CLIENTE = "/v1/brasilprev/deletaCliente/{id}";
-  private static final String BUSCA_CLIENTE = "/v1/brasilprev/buscaClientes";
-  private static final String BUSCA_CLIENTE_ID = "/v1/brasilprev/buscaClientePeloID/{id}";
-  private static final String CATEGORIA = "/v1/brasilprev/cadastraCategoria";
-  private static final String PEDIDO = "/v1/brasilprev/cadastraPedido";
-  private static final String DELETE_PEDIDO = "/v1/brasilprev/deletaPedido/{id}";
-  private static final String BUSCA_PEDIDO = "/v1/brasilprev/buscaPedidos";
-  private static final String BUSCA_PEDIDO_ID = "/v1/brasilprev/buscaPedidoPeloID/{id}";
+  private static final String PRODUTO = "/v1/brasilprev/cadastraproduto";
+  private static final String DELETE_PRODUTO = "/v1/brasilprev/deletaproduto/**";
+  private static final String BUSCA_PRODUTO = "/v1/brasilprev/buscaprodutos";
+  private static final String BUSCA_PRODUTO_ID = "/v1/brasilprev/buscaprodutopeloid";
+  private static final String UPDATE_PRODUTO = "/v1/brasilprev/updateproduto/**";
+  private static final String CADASTRA_CLIENTE = "/v1/brasilprev/cadastracliente";
+  private static final String DELETE_CLIENTE = "/v1/brasilprev/deletacliente/**";
+  private static final String BUSCA_CLIENTE = "/v1/brasilprev/buscaclientes";
+  private static final String BUSCA_CLIENTE_ID = "/v1/brasilprev/buscaclientepeloid";
+  private static final String CATEGORIA = "/v1/brasilprev/cadastracategoria";
+  private static final String PEDIDO = "/v1/brasilprev/cadastrapedido";
+  private static final String DELETE_PEDIDO = "/v1/brasilprev/deletapedido/**";
+  private static final String BUSCA_PEDIDO = "/v1/brasilprev/buscapedidos";
+  private static final String BUSCA_PEDIDO_ID = "/v1/brasilprev/buscapedidopeloid";
   private static final String LOGIN = "/v1/brasilprev/login";
 
   @Autowired
