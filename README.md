@@ -46,6 +46,3 @@ Projeto foi baseado na modelagem abaixo:
 <ul>
   <li>Adicionar o Authorization no Header das requisições. (Authorization: BrasilPrev XXXX)</li>
 </ul>  
-
-<h3>Conclusão</h3>
-Já tinha uma parte desse projeto desenvolvido por já ter feito um teste anteriormente na Brasilprev, porem ele estava bem simples e não atendia todos os requesitos. Busquei conhecimento e nesta outra oportunidade venho mostrar o trabalho que foi desenvolvido com o conhecimento adquirido para cumprir todos os requesitos solicitados.
